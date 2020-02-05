@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<div id="container">
+  <div id="sideMenu">
+    <h1>Online Shop</h1>
+
+    <ul class="menu">
+      <li>Main</li>
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="#">Categories</a></li>
+    </ul>
+
+    <ul class="menu">
+      <li>Chart Details</li>
+      <li>Product 1 <span class="colorIcon red"></span></li>
+      <li>Product 2 <span class="colorIcon orange"></span></li>
+      <li>Product 3 <span class="colorIcon green"></span></li>
+    </ul>
+  </div>
+  <div id="content">
+    <div id="titleBar">
+      <h2>Dashboard</h2>
+      <div id="profilePic">
+        <img src="img/profile.jpg" />
+      </div>
+      <span class="controls activeControl">Messages</span>
+    </div>
+
+    <div class="mainChart">
+      <canvas id="productData"></canvas>
+      
+      <div class="clearFix"></div>
+
+      <table>
+        <tr>
+          <th>Products</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+
+        <tr>
+          <td>Product 1</td>
+          <td>20</td>
+          <td>$1,342</td>
+        </tr>
+
+        <tr>
+          <td>Product 2</td>
+          <td>18</td>
+          <td>$1,550</td>
+        </tr>
+
+        <tr>
+          <td>Product 3</td>
+          <td>15</td>
+          <td>$4,170</td>
+        </tr>
+
+        <tr>
+          <td>Product 4</td>
+          <td>25</td>
+          <td>$2,974</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- <div class="test"></div> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/test.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

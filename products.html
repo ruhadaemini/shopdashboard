@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<div id="container">
+  <div id="sideMenu">
+    <h1>Online Shop</h1>
+
+    <ul class="menu">
+      <li>Main</li>
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="#">Categories</a></li>
+    </ul>
+
+    <ul class="menu">
+      <li>Chart Details</li>
+      <li>Product 1 <span class="colorIcon red"></span></li>
+      <li>Product 2 <span class="colorIcon orange"></span></li>
+      <li>Product 3 <span class="colorIcon green"></span></li>
+    </ul>
+  </div>
+  <div id="content">
+    <div id="titleBar">
+      <h2>Products</h2>
+      <div id="profilePic">
+        <img src="img/profile.jpg" />
+      </div>
+      <span class="controls activeControl">Messages</span>
+    </div>
+
+    <div class="main-content">
+      <div class="button-layout">
+        <button class="switch">Switch Layout</button>
+        <button id="myBtn">Add Product</button>
+      </div>
+      <div class="products-listing">
+        <div class="products-content">
+          <div class="test">
+          </div>
+        </div>
+      </div>
+
+      <div class="product-grid display-none">
+        <ul class="product-grid-header">
+          <li>Title</li>
+          <li>Description</li>
+          <li>Price</li>
+          <li>Category</li>
+          <li>Employee</li>
+          <li>Reviews</li>
+          <li>Action</li>
+        </ul>
+        <div class="product-title"></div>
+        <div class="product-description"></div>
+        <div class="product-price"></div>
+        <div class="product-category"></div>
+        <div class="product-employee"></div>
+        <div class="product-reviews"></div>
+        <div class="actions"></div>
+      </div>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Add Product</p>
+          <form class="add-product-form">
+            <div class="input-element">
+              <input type="text" name="title" id="title" placeholder="Title">
+            </div>
+            <div class="input-element">
+              <input type="text" name="description" id="description" placeholder="Description">
+            </div>
+            <div class="input-element">
+              <input type="text" name="price" id="price" placeholder="Price">
+            </div>
+            <div class="input-element">
+              <input type="text" name="category" id="category" placeholder="Category">
+            </div>
+            <div class="input-element">
+              <input type="text" name="employee" id="employee" placeholder="Employee">
+            </div>
+            <div class="input-element">
+              <input type="text" name="reviews" id="reviews" placeholder="Reviews">
+            </div>
+            <div class="input-element">
+              <input type="button" value="Submit" id="Save" class="submit-btn green">
+            </div>           
+          </form> 
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<!-- <div class="output"></div> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/test.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
+<script>    
+    $('.switch').on('click', function(e) {
+      $('.products-listing').toggleClass("display-none");
+      $('.product-grid').toggleClass("display-none");
+      e.preventDefault();
+    });
+
+
+    $(document).ready(function () {  
+             $("#Save").click(function () {  
+                 var product = new Object();  
+                 product.title = $('#title').val();  
+                 product.description = $('#description').val();  
+                 product.price = $('#price').val();  
+                 product.category = $('#category').val();  
+                 product.employee = $('#employee').val();  
+                 product.reviews = $('#reviews').val();  
+                 $.ajax({  
+                     url: 'http://us-central1-test-b7665.cloudfunctions.net/api/stores/ijpxNJLM732vm8AeajMR/products',  
+                     type: 'POST',  
+                     dataType: 'json',  
+                     data: product,  
+                     success: function (data, textStatus, xhr) {  
+                         console.log(data);  
+                         location.reload();
+                     },  
+                     error: function (xhr, textStatus, errorThrown) {  
+                         console.log('Error in Operation');  
+                         location.reload();
+                     }  
+                 });  
+             });  
+         });  
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
